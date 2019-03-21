@@ -125,7 +125,7 @@ function PlayState:update(dt)
       end
 end
 
-function PlayState:render()
+function PlayState:render()    
     for k, pair in pairs(self.pipePairs) do
         pair:render()
     end
@@ -134,6 +134,11 @@ function PlayState:render()
     love.graphics.print('Score: ' .. tostring(self.score), 8, 8)
 
     self.bird:render()
+    
+    if paused then
+      love.graphics.setFont(hugeFont)
+      love.graphics.printf('l l', 0, 116, VIRTUAL_WIDTH, 'center')
+    end
 end
 
 --[[
